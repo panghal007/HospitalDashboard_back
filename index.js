@@ -17,13 +17,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 require('dotenv').config()
-app.use('public', express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 // Define storage for uploaded files
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public'); // Destination directory for file uploads
+    cb(null, path.join(__dirname, './uploads')); // Destination directory for file uploads
   },
   filename: function (req, file, cb) {
     // Generate a unique filename for the uploaded file
