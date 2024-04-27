@@ -13,7 +13,7 @@ const hospitalSchema = new mongoose.Schema({
   pincode: { type: String, required: true },
   registrationDate: { type: Date, required: true },
   ambulancesAvailable: { type: Number, required: true },
-  email: { type: String, required: true },
+  email: { type: String, required: true , unique : true},
   phone: { type: String, required: true },
   registrationNumber: { type: String, required: true },
   emergencyWardNumber: { type: String, required: true },
